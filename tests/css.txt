@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  justify-content: space-around;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+
+}
+.selected-image img {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 10px;
+}

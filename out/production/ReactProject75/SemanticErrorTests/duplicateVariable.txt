@@ -1,0 +1,7 @@
+let y;
+let y;
+
+function test(){
+var x;
+var x;
+}

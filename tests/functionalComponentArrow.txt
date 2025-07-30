@@ -1,0 +1,58 @@
+import { useState,useRef,useEffect } from 'react'
+import './App.css';
+
+const images = [
+  {
+    id: 1,
+    title: 'Image 1',
+    description: 'Description for Image 1',
+    url: '/src/assets/image1.png',
+  },
+  {
+    id: 2,
+    title: 'Image 2',
+    description: 'Description for Image 2',
+    url: '/src/assets/image2.png',
+  },
+  {
+    id: 3,
+    title: 'Image 3',
+    description: 'Description for Image 3',
+    url: '/src/assets/image3.png',
+  },
+];
+
+const nour="";
+const App = () => {
+ const ref3 = useRef("Hello");
+
+const [selectedImage, setSelectedImage] = useState(images[0]);
+
+
+
+const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+
+  return (
+           <div className="App">
+        <div className="image-container">
+          {images.map((image) => (
+            <img
+              key={image.id}
+              src={image.url}
+              alt={image.title}
+              onClick={() => handleImageClick(image)}
+            />
+          ))}
+        </div>
+        <div className="selected-image">
+          <img src={selectedImage.url} alt={selectedImage.title} />
+          <h2>{selectedImage.title}</h2>
+          <p>{selectedImage.description}</p>
+        </div>
+      </div>
+  )}
+
+export default App;

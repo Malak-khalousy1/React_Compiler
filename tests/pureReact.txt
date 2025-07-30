@@ -1,0 +1,56 @@
+import React, { useState , useRef} from 'react';
+import './App.css';
+
+const images = [
+  {
+    id: 1,
+    title: 'Image 1',
+    description: 'Description for Image 1',
+    url: '/src/assets/image1.png',
+  },
+  {
+    id: 2,
+    title: 'Image 2',
+    description: 'Description for Image 2',
+    url: '/src/assets/image2.png',
+  },
+  {
+    id: 3,
+    title: 'Image 3',
+    description: 'Description for Image 3',
+    url: '/src/assets/image3.png',
+  },
+];
+
+function App() {
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+  const ref3 = useRef("Hello");
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+   const handleImageClick = (image) => {
+      setSelectedImage(image);
+    };
+
+
+  const imageElements = images.map((image) => (
+    React.createElement('img', {
+      key: image.id,
+      src: image.url,
+      alt: image.title,
+      onClick: () => handleImageClick(image)
+    })
+  ));
+
+  return React.createElement('div', { className: 'App' },
+    React.createElement('div', { className: 'image-container' }, imageElements),
+    React.createElement('div', { className: 'selected-image' },
+      React.createElement('img', { src: selectedImage.url, alt: selectedImage.title },),
+      React.createElement('h2', null, selectedImage.title),
+      React.createElement('p', null, selectedImage.description),
+      ),
+  );
+}
+
+export default App;

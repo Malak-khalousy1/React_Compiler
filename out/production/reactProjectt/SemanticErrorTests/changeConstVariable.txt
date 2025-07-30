@@ -1,0 +1,5 @@
+const x=0;
+//x=2;
+function test (){
+x=2;
+}

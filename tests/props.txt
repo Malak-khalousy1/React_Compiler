@@ -1,0 +1,65 @@
+import React, { useEffect} from 'react';
+import './App.css';
+//useState ,
+const images = [
+  {
+    id: 1,
+    title: 'Image 1',
+    description: 'Description for Image 1',
+    url: '/src/assets/image1.png',
+  },
+  {
+    id: 2,
+    title: 'Image 2',
+    description: 'Description for Image 2',
+    url: '/src/assets/image2.png',
+  },
+  {
+    id: 3,
+    title: 'Image 3',
+    description: 'Description for Image 3',
+    url: '/src/assets/image3.png',
+  },
+];
+
+function Image(props) {
+  const { image, onclick } = props;
+
+  return (
+    <img
+      id={image.id}
+      src={image.url}
+      alt={image.title}
+      onClick={() => onclick(image)}
+    />
+  );
+
+}
+
+function App() {
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+  useEffect(()=>{},[images[0]]);
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  return (
+      <div className="App">
+        <div className="image-container">
+          {images.map((image) => (
+            <Science
+              image={image}
+              onClick={handleImageClick}
+            />
+          ))}
+        </div>
+        <div className="selected-image">
+          <img key={selectedImage.id} src={selectedImage.url} alt={selectedImage.title} />
+          <h2>{selectedImage.title}</h2>
+          <p>{selectedImage.description}</p>
+        </div>
+      </div>
+  );
+}
+
+export default App;

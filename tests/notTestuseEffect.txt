@@ -1,0 +1,9 @@
+ useEffect(nameFunction);
+  useEffect(nameFunction,[]);
+  useEffect(nameFunction,[firstname]);
+  useEffect(nameFunction,[firstname,lastname]);
+  useEffect(nameFunction,[firstname,lastname,age]);
+  useEffect(()=>{});
+  useEffect(()=>{},[]);
+  useEffect(()=>{},[firstname]);
+  useEffect(()=>{},[firstname,lastname]);
